@@ -20,24 +20,11 @@ class FreebaseSource extends HttpSource {
      */
     public $description = 'FreebaseSource DataSource';
 
-    /**
-     * After request callback
-     * Filter data by fields, emulate limit, offset, order etc.
-     * Override this method for your DataSource.
-     *
-     * @param Model $model
-     * @param array $result
-     * @param string $request_method Create, update, read or delete
-     * @return array
-     */
-    public function afterRequest(Model $model, array $result, $request_method) {
-        if ($request_method === HttpSource::METHOD_READ) {
-            $data = Hash::get($result, 'result');
-            $this->numRows = count($data);
-
-            return parent::afterRequest($model, $data, $request_method);
-        }
-
-        return parent::afterRequest($model, $result, $request_method);
+    public function __construct($config = array(), HttpSocket $Http = null) {
+        parent::__construct($config, $Http);
+        $this->setDecoder(array('image/png', 'image/jpeg', 'image/gif'), function(HttpResponse $HttpResponse) {
+                    return array('image' => (string) $HttpResponse);
+                }, true);
     }
+
 }

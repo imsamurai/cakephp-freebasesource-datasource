@@ -57,7 +57,8 @@ $config['FreebaseSource']['read'] = array(
                 'lang',
                 'filter',
                 'limit'
-            )
+            ),
+            'map_results' => function ($result) { return array($result); }
         )
     ),
     'text' => array(
@@ -69,7 +70,8 @@ $config['FreebaseSource']['read'] = array(
                 'format',
                 'lang',
                 'maxlength'
-            )
+            ),
+            'map_results' => function ($result) { return array(array('text' => (string)Hash::get($result, 'result'))); }
         )
     ),
     'image' => array(
@@ -83,7 +85,8 @@ $config['FreebaseSource']['read'] = array(
                 'maxwidth',
                 'mode',
                 'pad'
-            )
+            ),
+            'map_results' => function ($result) { return array(array('image' => Hash::get($result, 'image'))); }
         )
     )
 );
@@ -98,3 +101,10 @@ $config['FreebaseSource']['map_read_params'] = array(
     'limit' => 'limit',
     'start' => 'offset'
 );
+
+$config['FreebaseSource']['map_results'] = function($result) {
+    if (!is_numeric(implode('', array_keys($result['result'])))) {
+        return array($result['result']);
+    }
+    return $result['result'];
+};
