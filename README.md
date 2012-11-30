@@ -9,8 +9,7 @@ CakePHP FreebaseSource Plugin with DataSource for http://www.freebase.com/
 
 ### Step 2: Clone or download to `Plugin/FreebaseSource`
 
-  cd my_cake_app/app
-	git://github.com/imsamurai/cakephp-freebasesource-datasource.git Plugin/FreebaseSource
+  cd my_cake_app/app git://github.com/imsamurai/cakephp-freebasesource-datasource.git Plugin/FreebaseSource
 
 or if you use git add as submodule:
 
