@@ -23,6 +23,7 @@ class FreebaseTest extends CakeTestCase {
     }
 
     protected function _setConfig() {
+        Configure::delete('FreebaseSource');
         Configure::load('FreebaseSource.FreebaseSource');
     }
 
