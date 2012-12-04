@@ -6,8 +6,8 @@
  * Format: http://book.cakephp.org/2.0/en/models.html
  */
 
-App::uses('Model', 'Model');
+App::uses('HttpSourceModel', 'HttpSource.Model');
 
-class Freebase extends Model {
+class Freebase extends HttpSourceModel {
     public $name = 'Freebase';
 }
