@@ -22,8 +22,8 @@ class FreebaseSource extends HttpSource {
 
     public function __construct($config = array(), HttpSocket $Http = null) {
         parent::__construct($config, $Http);
-        $this->setDecoder(array('image/png', 'image/jpeg', 'image/gif'), function(HttpResponse $HttpResponse) {
-                    return array('image' => (string) $HttpResponse);
+        $this->setDecoder(array('image/png', 'image/jpeg', 'image/gif'), function(HttpSocketResponse $HttpSocketResponse) {
+                    return array('image' => (string) $HttpSocketResponse);
                 }, true);
     }
 
