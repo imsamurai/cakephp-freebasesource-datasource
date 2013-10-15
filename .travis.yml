@@ -12,7 +12,7 @@ env:
 before_script:
   - git clone git://github.com/cakephp/cakephp ../cakephp && cd ../cakephp && git checkout $CAKE_VERSION
   - cp -R ../cakephp-freebasesource-datasource plugins/FreebaseSource
-  - git clone git://github.com/imsamurai/cakephp-httpsource-datasource plugins/HttpSource
+  - git clone --recursive git://github.com/imsamurai/cakephp-httpsource-datasource plugins/HttpSource
   - chmod -R 777 ../cakephp/app/tmp
   - set +H
   - echo "CakePlugin::load('HttpSource', array('bootstrap' => true, 'routes' => false));" >> ../cakephp/app/Config/bootstrap.php
