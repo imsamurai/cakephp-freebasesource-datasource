@@ -26,15 +26,19 @@ then update submodules:
 
 ```
 :: database.php ::
+```
+```php
 public $freebase = array(
   'datasource' => 'FreebaseSource.Http/FreebaseSource', 
         'host' => 'www.googleapis.com/freebase/v1',
         'port' => 443
 );
-
+```
 Then make model
-
+```
 :: Freebase.php ::
+```
+```php
 public $useDbConfig = 'freebase';
 public $useTable = '<desired api url ending, for ex: "search">';
 
@@ -44,6 +48,8 @@ public $useTable = '<desired api url ending, for ex: "search">';
 
 ```
 :: bootstrap.php ::
+```
+```php
 CakePlugin::load('HttpSource', array('bootstrap' => true, 'routes' => false));
 CakePlugin::load('FreebaseSource');
 
