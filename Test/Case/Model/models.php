@@ -1,4 +1,4 @@
-<?
+<?php
 /**
  * Author: imsamurai <im.samuray@gmail.com>
  * Date: 18.11.2012
