@@ -1,0 +1,34 @@
+{
+  "name": "imsamurai/freebase-source",
+  "description": "Freebase (http://www.freebase.com/) source for CakePHP (HttpSource)",
+  "type": "cakephp-plugin",
+  "keywords": [
+    "cakephp",
+    "database",
+	"datasource",
+	"freebase",
+    "plugin"
+  ],
+  "homepage": "http://github.com/imsamurai/cakephp-freebasesource-datasource",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Shamray Alexander",
+      "email": "im.samuray@gmail.com",
+      "homepage": "https://imsamurai.me",
+      "role": "Maintainer"
+    }
+  ],
+  "require": {
+    "composer/installers": "*",
+	"imsamurai/http-source": "1.0.*"
+  },
+  "support": {
+    "email": "im.samuray@gmail.com",
+    "issues": "https://github.com/imsamurai/cakephp-freebasesource-datasource/issues",
+    "source": "https://github.com/imsamurai/cakephp-freebasesource-datasource"
+  },
+  "extra": {
+    "installer-name": "FreebaseSource"
+  }
+}
