@@ -1,0 +1,128 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>FreebaseSource datasource for CakePHP by imsamurai</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/main.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  </head>
+  <body>
+
+      <header>
+        <h1>FreebaseSource datasource for CakePHP</h1>
+        <p>CakePHP FreebaseSource Plugin with DataSource for http://www.freebase.com/</p>
+      </header>
+
+      <div id="banner">
+        <span id="logo"></span>
+
+        <a href="https://github.com/imsamurai/cakephp-freebasesource-datasource" class="button fork"><strong>View On GitHub</strong></a>
+        <div class="downloads">
+          <span>Downloads:</span>
+          <ul>
+            <li><a href="https://github.com/imsamurai/cakephp-freebasesource-datasource/zipball/master" class="button">ZIP</a></li>
+            <li><a href="https://github.com/imsamurai/cakephp-freebasesource-datasource/tarball/master" class="button">TAR</a></li>
+          </ul>
+        </div>
+      </div><!-- end banner -->
+
+    <div class="wrapper">
+      <nav>
+        <ul></ul>
+      </nav>
+      <section>
+        <h2>
+<a id="abstract" class="anchor" href="#abstract" aria-hidden="true"><span class="octicon octicon-link"></span></a>Abstract</h2>
+
+<p><a href="https://travis-ci.org/imsamurai/cakephp-freebasesource-datasource"><img src="https://travis-ci.org/imsamurai/cakephp-freebasesource-datasource.png" alt="Build Status"></a> <a href="https://coveralls.io/r/imsamurai/cakephp-freebasesource-datasource?branch=master"><img src="https://coveralls.io/repos/imsamurai/cakephp-freebasesource-datasource/badge.png?branch=master" alt="Coverage Status"></a> <a href="https://packagist.org/packages/imsamurai/freebase-source"><img src="https://poser.pugx.org/imsamurai/freebase-source/v/stable.png" alt="Latest Stable Version"></a> <a href="https://packagist.org/packages/imsamurai/freebase-source"><img src="https://poser.pugx.org/imsamurai/freebase-source/downloads.png" alt="Total Downloads"></a> <a href="https://packagist.org/packages/imsamurai/freebase-source"><img src="https://poser.pugx.org/imsamurai/freebase-source/v/unstable.png" alt="Latest Unstable Version"></a> <a href="https://packagist.org/packages/imsamurai/freebase-source"><img src="https://poser.pugx.org/imsamurai/freebase-source/license.png" alt="License"></a></p>
+
+<p>CakePHP FreebaseSource Plugin with DataSource for <a href="http://www.freebase.com/">http://www.freebase.com/</a></p>
+
+<h2>
+<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h2>
+
+<h3>
+<a id="step-1-clone-or-download-httpsource" class="anchor" href="#step-1-clone-or-download-httpsource" aria-hidden="true"><span class="octicon octicon-link"></span></a>Step 1: Clone or download <a href="https://github.com/imsamurai/cakephp-httpsource-datasource">HttpSource</a>
+</h3>
+
+<h3>
+<a id="step-2-clone-or-download-to-pluginfreebasesource" class="anchor" href="#step-2-clone-or-download-to-pluginfreebasesource" aria-hidden="true"><span class="octicon octicon-link"></span></a>Step 2: Clone or download to <code>Plugin/FreebaseSource</code>
+</h3>
+
+<p>cd my_cake_app/app git://github.com/imsamurai/cakephp-freebasesource-datasource.git Plugin/FreebaseSource</p>
+
+<p>or if you use git add as submodule:</p>
+
+<pre><code>cd my_cake_app
+git submodule add "git://github.com/imsamurai/cakephp-freebasesource-datasource.git" "app/Plugin/FreebaseSource"
+</code></pre>
+
+<p>then update submodules:</p>
+
+<pre><code>git submodule init
+git submodule update
+</code></pre>
+
+<h3>
+<a id="step-3-add-your-configuration-to-databasephp-and-set-it-to-the-model" class="anchor" href="#step-3-add-your-configuration-to-databasephp-and-set-it-to-the-model" aria-hidden="true"><span class="octicon octicon-link"></span></a>Step 3: Add your configuration to <code>database.php</code> and set it to the model</h3>
+
+<pre><code>:: database.php ::
+</code></pre>
+
+<div class="highlight highlight-php"><pre><span class="h"><span class="k">public</span> <span class="nv">$freebase</span> <span class="o">=</span> <span class="nf">array</span>(</span>
+<span class="h">  <span class="s1">'datasource'</span> <span class="o">=&gt;</span> <span class="s1">'FreebaseSource.Http/FreebaseSource'</span>, </span>
+<span class="h">        <span class="s1">'host'</span> <span class="o">=&gt;</span> <span class="s1">'www.googleapis.com/freebase/v1'</span>,</span>
+<span class="h">        <span class="s1">'port'</span> <span class="o">=&gt;</span> <span class="m">443</span></span>
+<span class="h">);</span></pre></div>
+
+<p>Then make model</p>
+
+<pre><code>:: Freebase.php ::
+</code></pre>
+
+<div class="highlight highlight-php"><pre><span class="h"><span class="k">public</span> <span class="nv">$useDbConfig</span> <span class="o">=</span> <span class="s1">'freebase'</span>;</span>
+<span class="h"><span class="k">public</span> <span class="nv">$useTable</span> <span class="o">=</span> <span class="s1">'&lt;desired api url ending, for ex: "search"&gt;'</span>;</span>
+<span class="h"></span></pre></div>
+
+<h3>
+<a id="step-4-load-plugin" class="anchor" href="#step-4-load-plugin" aria-hidden="true"><span class="octicon octicon-link"></span></a>Step 4: Load plugin</h3>
+
+<pre><code>:: bootstrap.php ::
+</code></pre>
+
+<div class="highlight highlight-php"><pre><span class="h"><span class="no">CakePlugin</span><span class="o">::</span>load(<span class="s1">'HttpSource'</span>, <span class="nf">array</span>(<span class="s1">'bootstrap'</span> <span class="o">=&gt;</span> <span class="kc">true</span>, <span class="s1">'routes'</span> <span class="o">=&gt;</span> <span class="kc">false</span>));</span>
+<span class="h"><span class="no">CakePlugin</span><span class="o">::</span>load(<span class="s1">'FreebaseSource'</span>);</span>
+<span class="h"></span></pre></div>
+
+<h1>
+<a id="documentation" class="anchor" href="#documentation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Documentation</h1>
+
+<p>Please read <a href="https://github.com/imsamurai/cakephp-httpsource-datasource/blob/master/README.md">HttpSource Plugin README</a></p>
+      </section>
+      <footer>
+        <p>Project maintained by <a href="https://github.com/imsamurai">imsamurai</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></small></p>
+      </footer>
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-54309823-1");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+  </body>
+</html>
